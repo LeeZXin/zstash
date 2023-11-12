@@ -1,0 +1,1 @@
+集成zsf下的log stash功能
