@@ -11,7 +11,7 @@ import (
 	"zstash/sink"
 )
 
-func initKafka() {
+func InitKafka() {
 	executorNums := static.GetInt("kafka.consumer.executorNums")
 	if executorNums <= 0 {
 		logger.Logger.Panic("kafka executorNums should greater than 0")

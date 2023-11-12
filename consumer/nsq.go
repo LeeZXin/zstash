@@ -12,7 +12,7 @@ import (
 	"zstash/sink"
 )
 
-func initNsq() {
+func InitNsq() {
 	executorNum := static.GetInt("nsq.consumer.executorNums")
 	if executorNum <= 0 {
 		logger.Logger.Panic("nsq executorNums should greater than 0")
