@@ -39,8 +39,8 @@ dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
-github.com/LeeZXin/zsf v1.0.74 h1:AYdrXX+wyVxZKNqVcg8z1Hvt8sQSqGClCitcuik9yDk=
-github.com/LeeZXin/zsf v1.0.74/go.mod h1:I+3QhP+B/6DH/DQXZfoxGPiqxlkx2JO23UIWAhbrz/0=
+github.com/LeeZXin/zsf v1.0.76 h1:jWCz6bvGAgu+je0oXkmR0B4CAs/6OTltVFAR2FuDOhE=
+github.com/LeeZXin/zsf v1.0.76/go.mod h1:I+3QhP+B/6DH/DQXZfoxGPiqxlkx2JO23UIWAhbrz/0=
 github.com/LeeZXin/zsf-utils v1.0.24 h1:+r93relqWAORFj5CvtiFSvmR226v7vopLZj/fyC+ERM=
 github.com/LeeZXin/zsf-utils v1.0.24/go.mod h1:Qx3UQ9RHnvWQNzxk7la92zK1OCVmpNFCxDwwStdDIvc=
 github.com/RoaringBitmap/roaring v0.4.23 h1:gpyfd12QohbqhFO4NVDUdoPOCXsyahYRQhINmlHxKeo=

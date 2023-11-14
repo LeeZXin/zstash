@@ -3,7 +3,7 @@ module zstash
 go 1.20
 
 require (
-	github.com/LeeZXin/zsf v1.0.74
+	github.com/LeeZXin/zsf v1.0.76
 	github.com/LeeZXin/zsf-utils v1.0.24
 	github.com/blevesearch/bleve v1.0.14
 	github.com/bwmarrin/snowflake v0.3.0
