@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/LeeZXin/zsf/logger"
-	"github.com/LeeZXin/zsf/mq"
+	"github.com/LeeZXin/zsf/mq/nsqmq"
 	"github.com/LeeZXin/zsf/property/static"
 	"github.com/nsqio/go-nsq"
 	"strings"
@@ -17,7 +17,7 @@ func InitNsq() {
 	if executorNum <= 0 {
 		logger.Logger.Panic("nsq executorNums should greater than 0")
 	}
-	consumer, err := mq.NewNsqConsumer(mq.NsqConsumerConfig{
+	consumer, err := nsqmq.NewNsqConsumer(nsqmq.NsqConsumerConfig{
 		Topic:        static.GetString("nsq.consumer.topic"),
 		Channel:      static.GetString("nsq.consumer.channel"),
 		Addrs:        strings.Split(static.GetString("nsq.consumer.addrs"), ";"),

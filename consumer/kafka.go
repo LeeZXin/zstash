@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/LeeZXin/zsf/logger"
-	"github.com/LeeZXin/zsf/mq"
+	"github.com/LeeZXin/zsf/mq/kafkamq"
 	"github.com/LeeZXin/zsf/property/static"
 	"strings"
 	"zstash/model"
@@ -12,11 +12,11 @@ import (
 )
 
 func InitKafka() {
-	executorNums := static.GetInt("kafka.consumer.executorNums")
-	if executorNums <= 0 {
-		logger.Logger.Panic("kafka executorNums should greater than 0")
+	executorsNum := static.GetInt("kafka.consumer.executorsNum")
+	if executorsNum <= 0 {
+		logger.Logger.Panic("kafka executorsNum should greater than 0")
 	}
-	consumer, err := mq.NewKafkaConsumer(mq.KafkaConfig{
+	consumer, err := kafkamq.NewConsumer(kafkamq.Config{
 		Brokers:       strings.Split(static.GetString("kafka.consumer.brokers"), ";"),
 		Topic:         static.GetString("kafka.consumer.topic"),
 		GroupId:       static.GetString("kafka.consumer.groupId"),
@@ -27,14 +27,14 @@ func InitKafka() {
 	if err != nil {
 		logger.Logger.Panic(err)
 	}
-	consumer.Consume(func(ctx context.Context, _ int64, msgBody string) error {
+	consumer.Consume(func(ctx context.Context, _ int64, msgBody []byte) error {
 		var log model.LogContent
 		// 不符合格式
-		err := json.Unmarshal([]byte(msgBody), &log)
+		err := json.Unmarshal(msgBody, &log)
 		if err != nil {
 			return nil
 		}
 		sink.DoSink(log)
 		return nil
-	}, true, executorNums)
+	}, kafkamq.WithAutoCommit(true), kafkamq.WithExecutorsNum(executorsNum))
 }
